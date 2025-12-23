@@ -30,9 +30,9 @@ export default function Header({ user = null, cartItemCount = 0 }) {
 
   const navigationItems = [
     {
-      label: 'Productos',
+      label: 'Products',
       path: '/products',
-      icon: 'BeakerIcon',
+      icon: 'ShoppingBagIcon',
       userTypes: ['all'],
     },
     {

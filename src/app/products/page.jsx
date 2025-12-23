@@ -1,10 +1,10 @@
-import ProductsInteractive from './components/ProductsInteractive';
-
-export const metadata = {
-  title: 'Productos - ChemClean Commerce',
-  description: 'Catálogo completo de productos químicos de limpieza profesionales. Encuentra detergentes industriales, desinfectantes, jabones antibacteriales y más.'
-};
+import ProductsInteractive from "./components/ProductsInteractive";
 
 export default function ProductsPage() {
-  return <ProductsInteractive />;
+  return (
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Our Products</h1>
+      <ProductsInteractive />
+    </main>
+  );
 }
