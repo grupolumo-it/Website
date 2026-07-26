@@ -4,17 +4,24 @@ export async function getProducts() {
   const { data, error } = await supabase
     .from("products")
     .select(`
-      *,
-      product_images(*),
-      product_prices(*),
-      attributes(*),
+      id,
+      name,
+      slug,
+      short_description,
+      image_url,
+      badge,
+      rating,
+      reviews,
+      discount_percentage,
+      product_prices(price),
+      product_images(image_url, position),
       products_categories(
-        categories(*)
+        categories(name, slug, color, icon)
       )
     `)
-    .eq("is_active", true);
 
-  if (error) throw error;
+  console.log(data);
+  console.log(error);
 
   return data;
 }

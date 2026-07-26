@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
         <img
           src={image}
           alt={product.name}
-          className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
+          className="w-full h-64 object-cover group-hover:scale-105 transition cursor-pointer duration-500"
         />
 
         {product.is_featured && (

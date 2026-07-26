@@ -17,13 +17,13 @@ export default function HeaderActions() {
         <button
           key={button.icon}
           aria-label={button.label}
-          className="text-lumo-gray-600 hover:text-lumo-navy transition-colors"
+          className="text-lumo-gray-600 hover:text-lumo-navy transition-colors cursor-pointer"
         >
           <i className={`fa-solid ${button.icon} text-lg`} />
         </button>
       ))}
 
-      <button className="flex items-center space-x-2 text-lumo-gray-600 hover:text-lumo-navy">
+      <button className="flex items-center space-x-2  text-lumo-gray-600 hover:text-lumo-navy cursor-pointer">
         <i className="fa-regular fa-user text-lg" />
         <span className="hidden xl:inline text-sm font-medium">
           Profile
