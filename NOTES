@@ -1,0 +1,77 @@
+src/
+│
+├── assets/
+│
+├── components/
+│   ├── common/
+│   │   ├── Header/
+│   │   ├── Footer/
+│   │   ├── Sidebar/
+│   │   └── Loader/
+│   │
+│   ├── products/
+│   ├── orders/
+│   ├── users/
+│   └── analytics/
+│
+├── layouts/
+│   ├── ClientLayout.jsx
+│   ├── SellerLayout.jsx
+│   └── AdminLayout.jsx
+│
+├── pages/
+│   │
+│   ├── client/
+│   │   ├── Home.jsx
+│   │   ├── Marketplace.jsx
+│   │   ├── ProductDetail.jsx
+│   │   ├── Cart.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── Orders.jsx
+│   │   └── Profile.jsx
+│   │
+│   ├── seller/
+│   │   ├── Dashboard.jsx
+│   │   ├── Products.jsx
+│   │   ├── CreateProduct.jsx
+│   │   ├── Orders.jsx
+│   │   ├── Inventory.jsx
+│   │   └── Statistics.jsx
+│   │
+│   └── admin/
+│       ├── Dashboard.jsx
+│       ├── Users.jsx
+│       ├── Sellers.jsx
+│       ├── Products.jsx
+│       ├── Categories.jsx
+│       ├── Reports.jsx
+│       └── Settings.jsx
+│
+├── routes/
+│   ├── AppRoutes.jsx
+│   ├── AdminRoutes.jsx
+│   ├── SellerRoutes.jsx
+│   └── ClientRoutes.jsx
+│
+├── services/
+│   ├── api.js
+│   ├── authService.js
+│   ├── productService.js
+│   ├── orderService.js
+│   └── userService.js
+│
+├── hooks/
+│   ├── useAuth.js
+│   ├── useProducts.js
+│   └── useOrders.js
+│
+├── context/
+│   ├── AuthContext.jsx
+│   ├── CartContext.jsx
+│   └── NotificationContext.jsx
+│
+├── utils/
+│
+├── App.jsx
+├── main.jsx
+└── index.css
