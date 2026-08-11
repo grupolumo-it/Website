@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../../../services/productService";
 import ProductCard from "../../../../components/common/ProductCard/ProductCard";
+import { getFeaturedProducts } from "../../../../services/productService";
 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState([]);
@@ -12,9 +13,19 @@ export default function FeaturedProducts() {
 
   async function loadProducts() {
     try {
-      const data = await getProducts();
+      const data = await getFeaturedProducts();
+      console.log("PRODUCTO COMPLETO:", data[0]);
 
-      console.log("Productos:", data);
+      console.log(
+        "PRECIOS:", 
+        data[0]?.product_prices
+      );
+
+      console.log(
+        "IMAGENES:",
+        data[0]?.product_images
+      );
+     
 
       setProducts(data);
     } catch (error) {
@@ -43,8 +54,8 @@ export default function FeaturedProducts() {
 
       </div>
 
-      <div className="grid grid-cols-4 gap-8">
-        {products.slice(0, 4).map((product) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {products.map((product) => (
             <ProductCard
             key={product.id}
             product={product}

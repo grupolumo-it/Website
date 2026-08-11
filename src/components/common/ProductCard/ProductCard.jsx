@@ -1,13 +1,24 @@
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
-  const image =
-    product.product_images?.[0]?.image_url ||
-    product.image_url ||
-    "https://placehold.co/600x600?text=Lumo";
 
-  const price =
-    product.product_prices?.[0]?.price ?? 0;
+  const {
+    name,
+    image,
+    description,
+    price,
+    currency,
+    badge,
+    featured,
+  } = product;
+
+  const formattedPrice = new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: currency || "COP",
+    maximumFractionDigits: 0,
+  }).format(price);
+  
 
   return (
     <div className="bg-white rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
@@ -15,16 +26,17 @@ export default function ProductCard({ product }) {
       {/* Imagen */}      
 
       <div className="relative overflow-hidden">
+        <Link to={`/products/${product.slug}`}>
+          <img 
+            src={image}
+            alt={name}
+            className="w-full h-64 object-cover group-hover:scale-105 transition cursor-pointer duration-500"
+          />
+        </Link>
 
-        <img
-          src={image}
-          alt={product.name}
-          className="w-full h-64 object-cover group-hover:scale-105 transition cursor-pointer duration-500"
-        />
-
-        {product.is_featured && (
+        {  featured && badge && (
           <span className="absolute top-4 left-4 bg-[#1D2559] text-white text-xs px-3 py-1 rounded-full">
-            DESTACADO
+            {badge}
           </span>
         )}
 
@@ -33,23 +45,24 @@ export default function ProductCard({ product }) {
       {/*Información*/}
 
       <div className="p-5">
-
-        <h3 className="text-xl font-semibold text-[#1D2559] line-clamp-1">
-          {product.name}
-        </h3>
+        <Link to={`/products/${product.slug}`}>
+          <h3 className="text-xl font-semibold text-[#1D2559] line-clamp-1">
+            {name}
+          </h3>
+        </Link>
 
         <p className="text-gray-500 mt-2 line-clamp-2 text-sm">
-          {product.description}
+          {description}
         </p>
 
         <div className="mt-5 flex justify-between items-center">
 
           <span className="text-2xl font-bold text-[#1D2559]">
-            ${price}
+            {formattedPrice}
           </span>
 
           <button
-            className="bg-[#1D2559] hover:bg-[#303A80] text-white rounded-full p-3 transition"
+            className="bg-[#1D2559] hover:bg-[#303A80] text-white rounded-full p-3 cursor-pointer transition"
           >
             <ShoppingCart size={18} />
           </button>

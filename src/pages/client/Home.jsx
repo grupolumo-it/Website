@@ -3,6 +3,7 @@ import FeaturedProducts from "./home/FeaturedProducts/FeaturedProducts.jsx";
 
 export default function HomeClient() {
   return (
-    <><FeaturedCategories /><FeaturedProducts /></>
+    <><FeaturedCategories />
+    <FeaturedProducts /></>
   );
 }
